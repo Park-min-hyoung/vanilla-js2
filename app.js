@@ -1,19 +1,40 @@
-const calculator = {
-  add: function (a, b) {
-    console.log(a + b);
-  },
-  minus: function (a, b) {
-    console.log(a - b);
-  },
-  divide: function (a, b) {
-    console.log(a / b);
-  },
-  pow: function (a, b) {
-    console.log(a ** b);
-  },
-};
+const h1 = document.querySelector(".hello:first-child h1");
 
-calculator.add(3, 4);
-calculator.minus(3, 4);
-calculator.divide(9, 3);
-calculator.pow(2, 5);
+console.dir(h1);
+
+function handleTitleClick() {
+  h1.style.color = "blue";
+}
+
+function handleMouseEnter() {
+  h1.innerText = "Mouse is here!";
+}
+
+function handleMouseLeave() {
+  h1.innerText = "Mouse is gone!";
+}
+
+function handleWindowResize() {
+  document.body.style.backgroundColor = "tomato";
+}
+
+function handleWindowCopy() {
+  alert("copier!");
+}
+
+function handleWindowOffline() {
+  alert("SOS no WIFI");
+}
+
+function handleWindowOnline() {
+  alert("ALL GOOD!");
+}
+
+h1.addEventListener("click", handleTitleClick);
+h1.addEventListener("mouseenter", handleMouseEnter);
+h1.addEventListener("mouseleave", handleMouseLeave);
+
+window.addEventListener("resize", handleWindowResize);
+window.addEventListener("copy", handleWindowCopy);
+window.addEventListener("offline", handleWindowOffline);
+window.addEventListener("online", handleWindowOnline);
