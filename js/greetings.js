@@ -13,11 +13,12 @@ function onLoginSubmit(event) {
   paintGreetings(username);
 }
 
-function paintGreetings(username) {
-  greeting.innerText = `Hello ${username}`;
+function paintGreetings(getUserName) {
+  greeting.innerText = `Hello ${getUserName}`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
+// work start
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 
 if (savedUsername === null) {
