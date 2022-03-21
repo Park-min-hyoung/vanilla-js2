@@ -18,8 +18,9 @@ function deleteToDo(event) {
 // 화면에 할일을 출력
 function paintToDo(newTodo) {
   const toDoli = document.createElement("li");
+  toDoli.id = newTodo.id;
   const toDospan = document.createElement("span");
-  toDospan.innerText = newTodo;
+  toDospan.innerText = newTodo.text;
   const removeBtn = document.createElement("button");
   removeBtn.innerText = "X";
   removeBtn.addEventListener("click", deleteToDo);
@@ -34,9 +35,14 @@ function handleToDoSubmit(event) {
   event.preventDefault();
   const newTodo = toDoInput.value;
   toDoInput.value = "";
-  toDos.push(newTodo);
 
-  paintToDo(newTodo);
+  const newTodoObj = {
+    text: newTodo,
+    id: Date.now(),
+  };
+  toDos.push(newTodoObj);
+
+  paintToDo(newTodoObj);
   localSaveToDos();
 }
 
