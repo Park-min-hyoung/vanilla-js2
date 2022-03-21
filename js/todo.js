@@ -13,6 +13,8 @@ function localSaveToDos() {
 function deleteToDo(event) {
   const removeli = event.target.parentElement;
   removeli.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(removeli.id));
+  localSaveToDos();
 }
 
 // 화면에 할일을 출력
