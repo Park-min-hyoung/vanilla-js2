@@ -4,7 +4,7 @@ const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "toDos";
 
-const toDos = [];
+let toDos = [];
 
 function localSaveToDos() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
@@ -15,6 +15,7 @@ function deleteToDo(event) {
   removeli.remove();
 }
 
+// 화면에 할일을 출력
 function paintToDo(newTodo) {
   const toDoli = document.createElement("li");
   const toDospan = document.createElement("span");
@@ -28,6 +29,7 @@ function paintToDo(newTodo) {
   toDoList.appendChild(toDoli);
 }
 
+// 새로 할일을 추가 할때
 function handleToDoSubmit(event) {
   event.preventDefault();
   const newTodo = toDoInput.value;
@@ -44,5 +46,6 @@ const savedToDos = localStorage.getItem(TODOS_KEY);
 
 if (savedToDos !== null) {
   const parsedToDos = JSON.parse(savedToDos);
-  parsedToDos.forEach((item) => console.log("this is the turn of ", item));
+  toDos = parsedToDos;
+  parsedToDos.forEach(paintToDo);
 }
